@@ -11,6 +11,7 @@ class LinkStack:
     # no need to use head node
     # here top means head pointer
     # here may add one property: count to count for the entire stack
+    # top一定要设置在链头的位置，而不能是链尾的位置，否则效率太低
     def __init__(self):
         self.top = None
 

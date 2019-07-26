@@ -1,3 +1,8 @@
+"""
+ToDo: 单链表反转/链表中环的检测/两个有序链表的合并/删除链表倒数第n个节点/求链表的中间节点
+"""
+
+
 class Node():
     def __init__(self, data=None):
         self.data = data
