@@ -51,6 +51,46 @@ class binary_search_tree:
                 else:
                     node = node.left
 
+    def delete(self, data):
+        node = self.root_node
+        parent_node = None  # parent_node is the parent of target node
+
+        # First find the node whose value equals data
+        while node and node.value != data:
+            parent_node = node
+            if node.value > data:
+                node = node.left
+            else:
+                node = node.right
+
+        if not node:
+            return -1  # didn't find the target node
+
+        if node.left and node.right:
+            min_node = node.right
+            parent_min_node = node
+            while min_node.left:
+                parent_min_node = min_node
+                min_node = min_node.left
+
+            # substitute the node using min node
+            node.value = min_node.value
+            node = min_node
+            parent_node = parent_min_node
+
+        # found the target node
+        if not node.left:
+            child = node.right
+        elif not node.right:
+            child = node.left
+
+        if not parent_node: # target node is root node
+            self.root_node = child
+        elif parent_node.left == node:
+            parent_node.left = child
+        else:
+            parent_node.right = child
+
 
 def in_order(root_node):
     if not root_node:
@@ -112,6 +152,22 @@ in_order(a_node)
 # print(search_node(a_node, 67).value)
 print(bs_tree.find(27).value)
 
-bs_tree.insert(55)
+# bs_tree.insert(55)
+# in_order(a_node)
+# print(bs_tree.find(55).value)
+
+
+print("Testing Delete")
+bs_tree.delete(50)
 in_order(a_node)
-print(bs_tree.find(55).value)
+
+# empty_tree = binary_search_tree(None)
+# empty_tree.insert(3)
+# empty_tree.insert(1)
+# empty_tree.insert(5)
+# empty_tree.insert(0)
+# empty_tree.insert(2)
+# empty_tree.insert(4)
+# empty_tree.insert(6)
+# root_node = empty_tree.root_node
+# in_order(root_node)
