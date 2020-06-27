@@ -9,26 +9,25 @@ adjs = {
     7: [5, 6]
 }
 
-
-def depth_first_traverse_v1(start, adjs):
+def dfs(start, adjs):
     my_stack = []
-    visited = []
-    output = []
+    seen = set()
+    results = []
 
     # initialize
     my_stack.append(start)
-    visited.append(start)
+    seen.add(start)
 
     while my_stack:
-        curr_top = my_stack.pop()
-        output.append(curr_top)
+        curr_top = my_stack.pop(-1)
+        results.append(curr_top)
 
         for adj in adjs[curr_top]:
-            if adj not in visited:
+            if adj not in seen:
                 my_stack.append(adj)
-                visited.append(adj)
+                seen.add(adj)
 
-    return output
+    return results
 
-
-print(depth_first_traverse_v1(0, adjs))
+results = dfs(0, adjs)
+print(results)      #   [0, 3, 4, 6, 7, 5, 2, 1]

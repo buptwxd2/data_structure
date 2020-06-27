@@ -1,0 +1,18 @@
+written on 6/27/2020
+周末刷了一段时间的关于BFS与DFS的leetcode
+现总结如下：
+根据刷题发现，遍历比搜索target用得更多，所以这里主要列的是遍历traversal
+
+DFS遍历有两种方法：
+    1.使用递归, 见recursive_dfs.py
+    2.不使用递归，利用stack实现iterative(这里又有两种方式)
+    
+不使用递归有两种实现方式（这两种方式在出栈、入栈的处理方式，顺序不一样）
+1. dfs_stack_v1     DFS的结果/顺序就是出栈的顺序，这种其实更好理解
+2. dfs_stack_v2     其实参考的是Refer to:
+                    Algorithm: 
+                        https://www.youtube.com/watch?v=pcKY4hjDrxk
+                        https://www.tutorialspoint.com/data_structures_algorithms/depth_first_traversal.htm
+                    Code：
+                        https://www.tutorialspoint.com/data_structures_algorithms/depth_first_traversal_in_c.htm
+
