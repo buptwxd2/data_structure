@@ -11,7 +11,7 @@ adjs = {
     7: [5, 6]
 }
 
-# recursive dfs; 其实就是回溯法
+# recursive dfs; 其实就是回溯法（？有点区别是回溯做了选择退回来后会清掉之前的选择，但是这里seen并没有清掉而且还不能清掉）
 results = []
 def recur_dfs(start, adjs, seen):
     results.append(start)

@@ -19,7 +19,6 @@ def dfs(start, adjs):
     seen.add(start)
     results.append(start)
 
-
     while my_stack:
         curr_top = my_stack[-1]     # 只是拿当前的top, 并没有pop
 
